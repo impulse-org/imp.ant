@@ -1,0 +1,8 @@
+<project name="org.eclipse.imp.ant" basedir="." default="default">
+	<target name="default">
+		<property name="vals" value="a,b,c"/>
+		<for param="item" values="${vals}">
+			<echo message="${item}"/>
+		</for>
+	</target>
+</project>

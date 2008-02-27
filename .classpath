@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="ECLIPSE_HOME/plugins/org.apache.ant_1.6.5/lib/ant.jar" sourcepath="/ECLIPSE_HOME/plugins/org.eclipse.platform.source_3.2.2.r322_v20070119-RQghndJN8IM0MsK/src/org.apache.ant_1.6.5/lib/antsrc.zip"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
