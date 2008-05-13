@@ -9,34 +9,41 @@ import org.apache.tools.ant.Task;
 import org.apache.tools.ant.TaskContainer;
 
 public class ForTask extends Task implements TaskContainer {
-	private List fTasks= new ArrayList();
-	private List fValues= new ArrayList();
-	private String fParamName;
+    private List<Task> fTasks= new ArrayList<Task>();
+    private String fValueStr;
+    private String fSeparator= ",";
+    private String fParamName;
 
-	public void setParam(String name) {
-		fParamName= name;
-	}
+    public void setSeparator(String sep) {
+        fSeparator= sep;
+    }
 
-	public void setValues(String valueStr) {
-		String[] values= valueStr.split(",");
-		for(int i=0; i < values.length; i++) {
-			fValues.add(values[i]);
-		}
-	}
+    public void setParam(String name) {
+        fParamName= name;
+    }
 
-	public void addTask(Task task) {
-		fTasks.add(task);
-	}
+    public void setValues(String valueStr) {
+        fValueStr= valueStr;
+    }
 
-	public void execute() throws BuildException {
-		for(Iterator valueIter= fValues.iterator(); valueIter.hasNext(); ) {
-			String value= (String) valueIter.next();
-			getProject().setProperty(fParamName, value);
+    public void addTask(Task task) {
+        fTasks.add(task);
+    }
 
-			for (Iterator taskIter= fTasks.iterator(); taskIter.hasNext(); ) {
-				Task task= (Task) taskIter.next();
-				task.perform();
-			}
-		}
-	}
+    public void execute() throws BuildException {
+        String[] values= fValueStr.split(fSeparator);
+        List<String> valueList= new ArrayList<String>();
+        for(int i= 0; i < values.length; i++) {
+            valueList.add(values[i]);
+        }
+        for(Iterator<String> valueIter= valueList.iterator(); valueIter.hasNext(); ) {
+            String value= valueIter.next();
+            getProject().setProperty(fParamName, value);
+
+            for(Iterator<Task> taskIter= fTasks.iterator(); taskIter.hasNext();) {
+                Task task= taskIter.next();
+                task.perform();
+            }
+        }
+    }
 }
