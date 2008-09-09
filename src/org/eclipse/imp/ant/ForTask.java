@@ -19,11 +19,11 @@ public class ForTask extends Task implements TaskContainer {
     }
 
     public void setParam(String name) {
-        fParamName= name;
+        fParamName= name; 
     }
 
     public void setValues(String valueStr) {
-        fValueStr= valueStr;
+        fValueStr= valueStr; 
     }
 
     public void addTask(Task task) {
@@ -46,4 +46,10 @@ public class ForTask extends Task implements TaskContainer {
             }
         }
     }
+    
+    // For experimental purposes
+    private void someOtherMethod() {
+    	
+    }
+    
 }
