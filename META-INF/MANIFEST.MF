@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ant
+Bundle-SymbolicName: org.eclipse.imp.ant
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: ant.jar,
+ eclipse-3.4.2/plugins/org.apache.ant_1.7.0.v200803061910/lib/ant.jar
+Export-Package: org.eclipse.imp.ant
+Require-Bundle: org.apache.ant;bundle-version="1.7.1"
