@@ -8,6 +8,16 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.TaskContainer;
 
+/**
+ * Trivial task that acts somewhat like the Java 5 enhanced for. Namely, it supports
+ * the following task attributes:<br>
+ * <ul>
+ *   <li><b>param</b> the name of the property which will be bound to successive values of the value list
+ *   <li><b>values</b> a string containing the list of values to be iterated over
+ *   <li><b>separator</b> the string that is used to separate values in the 'values' list
+ * </ul>
+ * @author rfuhrer@watson.ibm.com
+ */
 public class ForTask extends Task implements TaskContainer {
     private List<Task> fTasks= new ArrayList<Task>();
     private String fValueStr;
