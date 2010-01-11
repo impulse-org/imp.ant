@@ -1,8 +1,16 @@
 <project name="org.eclipse.imp.ant" basedir="." default="default">
 	<target name="default">
+        <!-- Test the 'for' task -->
 		<property name="vals" value="a,b,c"/>
 		<for param="item" values="${vals}">
 			<echo message="${item}"/>
 		</for>
+        <!-- Test the 'propertyRegexp' task -->
+		<tstamp>
+			<format property="build.time" pattern="yyyyMMddHHmm"/>
+		</tstamp>
+        <property name="build.qualifier" value="v${build.time}"/>
+        <propertyRegexp name="foo" input="2.0.1.qualifier" regexp="(.*).qualifier" value="\1.${build.qualifier}"/>
+		<echo message="foo = ${foo}"/>
 	</target>
 </project>
