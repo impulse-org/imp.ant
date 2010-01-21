@@ -46,6 +46,9 @@ public class ForTask extends Task implements TaskContainer {
         for(int i= 0; i < values.length; i++) {
             valueList.add(values[i]);
         }
+        if (valueList.size() == 1 && valueList.get(0).equals("")) {
+            return;
+        }
         for(Iterator<String> valueIter= valueList.iterator(); valueIter.hasNext(); ) {
             String value= valueIter.next();
             getProject().setProperty(fParamName, value);
