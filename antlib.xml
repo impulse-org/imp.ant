@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<antlib>
+    <taskdef name="for" classname="org.eclipse.imp.ant.ForTask"/>
+    <taskdef name="propertyRegexp" classname="org.eclipse.imp.ant.PropertyRegexpTask"/>
+</antlib>
