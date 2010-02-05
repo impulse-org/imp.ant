@@ -1,0 +1,10 @@
+<project name="org.eclipse.imp.ant" basedir="." default="default">
+    <target name="default">
+        <property name="destfile" value="ant-imp.jar"/>
+        <delete file="${destfile}"/>
+        <jar destfile="${destfile}" update="false">
+            <fileset dir="bin" includes="**/*.class"/>
+            <fileset dir="." includes="antlib.xml"/>
+        </jar>
+    </target>
+</project>
